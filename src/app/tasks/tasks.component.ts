@@ -11,5 +11,11 @@ import { Task } from './task/task.model';
   imports: [TaskComponent , RouterLink],
 })
 export class TasksComponent {
-  userTasks: Task[] = [];
+  userId= input.required<string>();
+  // exctracting query parameters via inputs
+  order = input<'asc' | 'desc'>();
+  private taskService = inject(TaskServices);
+  userTasks: Task[] = computed(()=>
+    this.taskService.allTasks().filter((task)=>task.userId === this.userId())
+      );
 }
