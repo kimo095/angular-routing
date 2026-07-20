@@ -11,8 +11,9 @@ import { ActivatedRoute, RouterOutlet , RouterLink} from '@angular/router';
   styleUrl: './user-tasks.component.css',
 })
 export class UserTasksComponent implements OnInit {
-  userId = input.required<string>();
   userName = "";
+  userId = input.required<string>();
+  userName = input.required<string>();
   message = input.required <string>();
   private userService = inject(UsersService);
   private destroyRef = inject(DestroyRef);
@@ -36,3 +37,27 @@ export class UserTasksComponent implements OnInit {
   }
 
 }
+
+export const resolveUserName: ResolveFn<string> = (
+  activatedRouted: ActivatedRouteSnapshot,
+  routerState: RouterStateSnapshot
+  ) => {
+  const userService = inject(UsersService);
+  const userName = 
+    userService.users.find(
+      (u) => u.id === activateRoute.paramMap.get('userId'))?.name || '';
+    return userName;
+  };
+
+// basically with this resolver function you can put as  a value pair in your app.route.ts file {
+// userName : resolveUserName , without calling the function , since eangular will call for us
+// the we can accept userName as input and get rid of all the code below {
+//    ngOnInit(): void {
+//       const subscription = this.activatedRoute.paramMap.subscribe({
+//         next:(paramMap)=> {
+//           this.username = this.userService.users.find((u)=>u.id === paramMap.get('userId'))?.name || ''
+//         }
+//       })
+//       this.destroyRef.onDestroy(()=>subscription.unsubscribe())
+//   }
+//      }
