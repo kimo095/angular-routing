@@ -16,6 +16,13 @@ export const routes:Routes = [
       // we add children here to add nested routes
         children:[
             {
+              path:'',
+              redirectTo:'tasks',
+              pathMatch:'prefix'
+            },
+          // 'prefix' URL starts with the route's path Redirecting a whole URL subtree (e.g. /old/** → /new/**)
+          // 'full' URL exactly equals the route's path Default/empty route redirects ('' → /home)
+          {
          path:'tasks',
          component:TasksComponent
             },
