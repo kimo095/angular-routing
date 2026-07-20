@@ -1,4 +1,10 @@
+<p>
+  <a routerLink="./" [queryParams]="{order:'asc'}">
+    Sort Ascending/Descending
+  </a>
+</p>
 <ul>
+  <!-- using ./ for routerLink means you will stay at the same page , so in the url the order=asc will be added -->
   @for (task of userTasks; track task.id) {
     <li>
       <app-task [task]="task" />
