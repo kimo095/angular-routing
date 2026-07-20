@@ -27,15 +27,22 @@ export class UserTasksComponent implements OnInit {
   // listen for changes and update whenever the route changes while the component is still alive.
   username = '';
   private activatedRoute = inject(ActivatedRoute)
-  ngOnInit(): void {
-      const subscription = this.activatedRoute.paramMap.subscribe({
-        next:(paramMap)=> {
-          this.username = this.userService.users.find((u)=>u.id === paramMap.get('userId'))?.name || ''
-        }
-      })
-      this.destroyRef.onDestroy(()=>subscription.unsubscribe())
+  // ngOnInit(): void {
+  //     const subscription = this.activatedRoute.paramMap.subscribe({
+  //       next:(paramMap)=> {
+  //         this.username = this.userService.users.find((u)=>u.id === paramMap.get('userId'))?.name || ''
+  //       }
+  //     })
+  //     this.destroyRef.onDestroy(()=>subscription.unsubscribe())
+  // }
+// another way is to use activateRoute and subscribe to the data which holds both static(Data) and dynamic( resolve)
+  ngOnInit():void {
+    this.activatedRoute.data.subscribe({
+      next:data => {
+        console.log(data)
+      }
+    })
   }
-
 }
 
 export const resolveUserName: ResolveFn<string> = (
