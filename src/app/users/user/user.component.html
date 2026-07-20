@@ -1,5 +1,8 @@
 <div>
   <a [routerLink]="['/users', user().id ,'tasks']" routerLinkActive="selected">
+    <!-- routerLinkActive is used to style the selected link by route -->
+    <!-- if you have static path with which in this case the url not change you need to only use routerLink = "/users" without arrays  -->
+    <!-- in the other hand if you have dynamic path that change with user change for example with user id , you need to consider arrays [routerLink]="['/users', user().id ,'tasks']" -->
     <img [src]="imagePath()" [alt]="user().name" />
     <span>{{ user().name }}</span>
   </a>
