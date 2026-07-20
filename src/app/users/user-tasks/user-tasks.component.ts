@@ -12,6 +12,8 @@ import { ActivatedRoute, RouterOutlet , RouterLink} from '@angular/router';
 })
 export class UserTasksComponent implements OnInit {
   userId = input.required<string>();
+  userName = "";
+  message = input.required <string>();
   private userService = inject(UsersService);
   private destroyRef = inject(DestroyRef);
 
