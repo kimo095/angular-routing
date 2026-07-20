@@ -30,7 +30,11 @@ export const routes:Routes = [
         path:'tasks/new',
         component:NewTaskComponent
             }
-        ]
+        ],
+      // here you can pass static data and recive as input in your component with help of input function
+      // since routing with input binding is activated 
+      data:{
+        message: 'hello'
     }, 
   {
     path: '**',
