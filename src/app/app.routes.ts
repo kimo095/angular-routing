@@ -36,9 +36,29 @@ export const routes:Routes = [
       data:{
         message: 'hello'
     }, 
+      //accepting dynamic data 
+      resove:{
+        userName: resolvedUserName
+      }
+    },
   {
     path: '**',
     component: NotFoundComponent,
   }
   // above the case if the path is not exist
 ]
+
+
+// But you can also define resolvers as classes - like this:
+
+// @Injectable({ providedIn: 'root' })
+// export class UserNameResolver implements Resolve<string> {
+//   constructor(private usersService: UsersService) {}
+//   resolve(activatedRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+//     const userName =
+//       this.usersService.users.find(
+//         (u) => u.id === activatedRoute.paramMap.get('userId')
+//       )?.name || '';
+//     return userName;
+//   }
+// }
