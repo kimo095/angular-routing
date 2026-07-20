@@ -19,6 +19,9 @@ export class UserTasksComponent implements OnInit {
 
   //Another way when dealing with older angular versions if you do not use the function in app config inputBinding since it is new way for acceptting input 
   // into the path and it is not avilable in the old version 
+ // ActivatedRoute.snapshot → reads the route information once when the component is created.
+// ActivatedRoute observables (params, paramMap, queryParams, etc.) →
+  // listen for changes and update whenever the route changes while the component is still alive.
   username = '';
   private activatedRoute = inject(ActivatedRoute)
   ngOnInit(): void {
