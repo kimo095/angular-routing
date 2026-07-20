@@ -17,7 +17,8 @@ export class UserTasksComponent implements OnInit {
 
   // userName = computed(()=>this.userService.users.find(u=>u.id === this.userId())?.name)
 
-  //Another way when dealing with older angular versions
+  //Another way when dealing with older angular versions if you do not use the function in app config inputBinding since it is new way for acceptting input 
+  // into the path and it is not avilable in the old version 
   username = '';
   private activatedRoute = inject(ActivatedRoute)
   ngOnInit(): void {
