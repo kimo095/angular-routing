@@ -25,4 +25,9 @@ export const routes:Routes = [
             }
         ]
     }, 
+  {
+    path: '**',
+    component: NotFoundComponent,
+  }
+  // above the case if the path is not exist
 ]
