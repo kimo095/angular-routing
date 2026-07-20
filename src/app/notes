@@ -1,0 +1,2 @@
+* It is better to store your routes insides app.routes.ts , and store the configs for this routes inside app.config.ts , then finally you need to configure them into 
+main.ts file
