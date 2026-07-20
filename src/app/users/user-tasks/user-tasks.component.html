@@ -3,6 +3,7 @@
     <h2>{{username}} Tasks</h2>
     <menu>
       <a routerLink="tasks/new">Add Task</a>
+      <!-- if the Current active link end with tasks we can go directly to tasks/new without construct the link from scratch , users/user:id/tasks/new -->
     </menu>
   </header>
     <router-outlet/>
