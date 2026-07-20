@@ -1,6 +1,6 @@
 import { Component, inject, input, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import {Router , RouterLink } from '@angular/router'; 
 import { TasksService } from '../tasks.service';
 
 @Component({
@@ -26,5 +26,10 @@ export class NewTaskComponent {
       },
       this.userId()
     );
+    this.router.navigate(['/users' , this.userId(), 'tasks'],{ 
+      replaceUrl: true,
+      // we use navigate in case of programmatic navigation 
+      // replaceUrl make no back to previous step
+    });
   }
 }
