@@ -13,6 +13,7 @@ export const routes:Routes = [
     {
         path:'users/:userId',//<your-domain>/tasks
         component:UserTasksComponent,
+      // we add children here to add nested routes
         children:[
             {
          path:'tasks',
